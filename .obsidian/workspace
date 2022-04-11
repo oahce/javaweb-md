@@ -4,7 +4,7 @@
     "type": "split",
     "children": [
       {
-        "id": "610f545e387240f1",
+        "id": "8d971c15f5d8e5f3",
         "type": "leaf",
         "state": {
           "type": "markdown",
@@ -97,17 +97,17 @@
     "direction": "horizontal",
     "width": 268.5
   },
-  "active": "610f545e387240f1",
+  "active": "8d971c15f5d8e5f3",
   "lastOpenFiles": [
     "09 运维/Centos7.6 运维实战/02 Linux基本操作和组装服务器.md",
     "09 运维/Centos7.6 运维实战/01 虚拟机配置.md",
-    "09 运维/Centos7.6 运维实战/01 虚拟机配置(1).md",
-    "99 项目整理/个人站点.md",
-    "99 项目整理/搬家笔记.md",
-    "08 工具/maven/02 Maven使用入门 2.md",
-    "08 工具/maven/01 Maven配置与注意事项.md",
-    "08 工具/maven/02 Maven使用入门.md",
-    "01 javaBase/001 程序基础/02 变量常量概念.md",
-    "01 javaBase/001 程序基础/01 标识符概念.md"
+    "09 运维/Centos7.6 运维实战/25 小结.md",
+    "09 运维/Centos7.6 运维实战/24 Shell色彩与awk.md",
+    "09 运维/Centos7.6 运维实战/23 正则表达式.md",
+    "09 运维/Centos7.6 运维实战/22 跳出循环与函数.md",
+    "09 运维/Centos7.6 运维实战/21 流程控制语句.md",
+    "09 运维/Centos7.6 运维实战/20 条件与IF.md",
+    "09 运维/Centos7.6 运维实战/19 Shell脚本基础.md",
+    "09 运维/Centos7.6 运维实战/18 Linux网络管理技术.md"
   ]
 }
