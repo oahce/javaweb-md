@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "09 运维/Centos7.6 运维实战/02 Linux基本操作和组装服务器.md",
+            "file": "readme.md",
             "mode": "source",
             "source": false
           }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "09 运维/Centos7.6 运维实战/02 Linux基本操作和组装服务器.md",
+                "file": "readme.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -86,7 +86,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "09 运维/Centos7.6 运维实战/02 Linux基本操作和组装服务器.md"
+                "file": "readme.md"
               }
             }
           }
@@ -99,15 +99,15 @@
   },
   "active": "8d971c15f5d8e5f3",
   "lastOpenFiles": [
+    "readme.md",
+    "99 项目整理/个人站点.md",
+    "99 项目整理/搬家笔记.md",
+    "99 项目整理/简历 2.md",
     "09 运维/Centos7.6 运维实战/02 Linux基本操作和组装服务器.md",
     "09 运维/Centos7.6 运维实战/01 虚拟机配置.md",
     "09 运维/Centos7.6 运维实战/25 小结.md",
     "09 运维/Centos7.6 运维实战/24 Shell色彩与awk.md",
     "09 运维/Centos7.6 运维实战/23 正则表达式.md",
-    "09 运维/Centos7.6 运维实战/22 跳出循环与函数.md",
-    "09 运维/Centos7.6 运维实战/21 流程控制语句.md",
-    "09 运维/Centos7.6 运维实战/20 条件与IF.md",
-    "09 运维/Centos7.6 运维实战/19 Shell脚本基础.md",
-    "09 运维/Centos7.6 运维实战/18 Linux网络管理技术.md"
+    "09 运维/Centos7.6 运维实战/22 跳出循环与函数.md"
   ]
 }

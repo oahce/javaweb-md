@@ -1,10 +1,12 @@
-# Linux网络相关概念
+# Linux基本操作和组装服务器
+## 一些基本概念
+**网络、信号与协议**
 网络是多台计算机用某种介质连接起来就是网络。
 信号是通过各种介质传递的信息。
 1秒一个信号，持续施加电压8秒，那么对方就会理解为传递了8个信号。
 传递信息之前规定多长时间为一个信号，就是协议。
 
-# 内核空间和用户空间
+**内核空间和用户空间**
 linux系统分为2个层次：用户空间和内核空间。
 所有用户进程都在用户空间运行，所有内核功能都在内核空间运行，网络功能就属于内核功能。
 配置ip这类操作是在内核中生效的，只是用户通过工具在用户空间对ip地址进行配置管理。
@@ -13,7 +15,8 @@ linux系统分为2个层次：用户空间和内核空间。
 2. 配置文件（永久生效）：不会立即生效，永久生效。
 内核在启动时会读取配置文件，内核启动后就不会再去读取配置文件，所以当内核启动后修改配置文件需要手动让内核重新读取配置文件。
 
-# 网卡的命名规则
+## 修改ip地址相关
+#### 网卡的命名规则
 在centos6之前，网卡的命名是用序号进行的，比如eth0、eth1等。
 新的 CentOS 7 开始对于网卡的编号有另一套规则，网卡的界面代号与网卡的来源有关,网卡名称会是这样分类的：
 1. eno ：主板板载网卡，代表由主板 BIOS 内置的网卡，eno1、eno2等
@@ -22,12 +25,13 @@ linux系统分为2个层次：用户空间和内核空间。
 4. eth0 ：如果上述的名称都不适用，就回到原本的默认网卡编号
 ens33为自动备援模式，名称定为ens33（桥接）。
 
-# root用户登陆系统
+#### root用户登陆系统
 linux默认有一个root用户，它是独一无二的。
 生产机中不建议使用root用户登陆，因为root用户权限相当大。
 
-# ifconfig命令
-```shell
+#### ifconfig命令
+**检测ifconfig安装包**
+```
 yum search  ifconfig
 已加载插件：fastestmirror
 Loading mirror speeds from cached hostfile
@@ -36,7 +40,9 @@ Loading mirror speeds from cached hostfile
  * updates: mirrors.163.com
 ============================================= 匹配：ifconfig ==============================================
 net-tools.x86_64 : Basic networking tools
-
+```
+安装ifconfig所在的工具包
+```
 yum install net-tools.x86_64
 已加载插件：fastestmirror
 Loading mirror speeds from cached hostfile
@@ -86,7 +92,9 @@ Running transaction
 
 完毕！
 
-
+```
+执行 ifconfig命令来查看ip信息
+```
 ifconfig
 ens33: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         inet 192.168.31.163  netmask 255.255.255.0  broadcast 192.168.31.255
@@ -106,6 +114,23 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         TX packets 96  bytes 8112 (7.9 KiB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
-
 ```
+第一行：
+UP 网卡开启
+BROADCAST 
+RUNNING 网卡处于连接状态
+MULTICAST 支持组播
+mtu 1500 最大传输单元大小是1500b
+第二行：
 
+
+
+## 临时和永久修改
+## 删除临时ip
+## ip配置文件
+## 永久修改ip地址
+## 关闭防火墙与开启配置
+## 临时和永久关闭SELiunx
+## 配置本地yum源
+## 创建可用实现快照
+## 电源设置
