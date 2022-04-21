@@ -1,0 +1,397 @@
+# 计算机信息
+```shell
+[root@oahc ~]# free -m
+              total        used        free      shared  buff/cache   available
+Mem:           1819         129        1519           9         170        1507
+[root@oahc ~]# cat /proc/cpuinfo
+[root@oahc ~]# top -- 1
+[root@oahc ~]# cat /etc/redhat-release 
+CentOS Linux release 7.6.1810 (Core) 
+[root@oahc ~]# hostname
+oahc.eux.cn
+[root@oahc ~]# getenforce
+Enforcing
+[root@oahc ~]# iptables -L
+...
+```
+# 安装工具包
+```shell
+[root@oahc ~]# yum install ncurses-devel libaio-devel gcc make
+正在安装:
+ gcc                                       base                            16 M
+ libaio-devel                              base                            13 k
+ ncurses-devel                             base                           712 k
+正在更新:
+ make                                      base                           421 k
+为依赖而安装: ...
+
+
+[root@oahc ~]# rpm qa  libaio-devel
+RPM 版本 4.11.3
+版权所有 (C) 1998-2002 - 红帽公司。
+该程序可以在 GNU GPL 条款下自由分发
+
+[root@oahc ~]# yum install cmake
+```
+
+# 创建用户
+```shell
+[root@oahc ~]# useradd -s /sbin/nologin -M mysql
+[root@oahc ~]# id mysql
+uid=1000(mysql) gid=1000(mysql) 组=1000(mysql)
+
+```
+
+# 下载与安装
+##  下载
+```shell
+[root@oahc root]# mkdir ~/download
+[root@oahc root]# cd ~/download
+[root@oahc download]# install wget
+[root@oahc download]# wget https://mirrors.sohu.com/mysql/MySQL-5.6/mysql-5.6.49.tar.gz
+正在解析主机 mirrors.sohu.com (mirrors.sohu.com)... 123.125.123.141
+...
+[root@oahc download]# ls -l
+总用量 31644
+-rw-r--r--. 1 root root 32402099 6月   2 2020 mysql-5.6.49.tar.gz
+[root@oahc download]# tar -zxvf mysql-5.6.49.tar.gz 
+[root@oahc download]# ls -l
+总用量 31648
+drwxr-xr-x. 33 7161 31415     4096 6月   2 2020 mysql-5.6.49
+-rw-r--r--.  1 root root  32402099 6月   2 2020 mysql-5.6.49.tar.gz
+[root@oahc download]# cd mysql-5.6.49
+[root@oahc mysql-5.6.49]# pwd
+/root/download/mysql-5.6.49
+
+[root@oahc mysql-5.6.49]# ls -l
+总用量 468
+drwxr-xr-x.  2 7161 31415   4096 6月   2 2020 BUILD
+drwxr-xr-x.  2 7161 31415   4096 6月   2 2020 client
+drwxr-xr-x.  4 7161 31415   4096 6月   2 2020 cmake
+-rw-r--r--.  1 7161 31415  24941 6月   2 2020 CMakeLists.txt
+drwxr-xr-x.  3 7161 31415     21 6月   2 2020 cmd-line-utils
+-rw-r--r--.  1 7161 31415  20248 6月   2 2020 config.h.cmake
+-rw-r--r--.  1 7161 31415  41346 6月   2 2020 configure.cmake
+drwxr-xr-x.  2 7161 31415   4096 6月   2 2020 dbug
+drwxr-xr-x.  2 7161 31415     80 6月   2 2020 Docs
+-rw-r--r--.  1 7161 31415  65958 6月   2 2020 Doxyfile-perfschema
+drwxr-xr-x.  3 7161 31415    216 6月   2 2020 extra
+drwxr-xr-x.  4 7161 31415   4096 6月   2 2020 include
+-rw-r--r--.  1 7161 31415    333 6月   2 2020 INSTALL
+drwxr-xr-x.  3 7161 31415    224 6月   2 2020 libmysql
+drwxr-xr-x.  3 7161 31415    204 6月   2 2020 libmysqld
+drwxr-xr-x.  2 7161 31415    221 6月   2 2020 libservices
+-rw-r--r--.  1 7161 31415 219891 6月   2 2020 LICENSE
+drwxr-xr-x.  2 7161 31415   4096 6月   2 2020 man
+drwxr-xr-x. 10 7161 31415   4096 6月   2 2020 mysql-test
+drwxr-xr-x.  2 7161 31415   4096 6月   2 2020 mysys
+drwxr-xr-x.  2 7161 31415    259 6月   2 2020 mysys_ssl
+drwxr-xr-x.  9 7161 31415    113 6月   2 2020 packaging
+drwxr-xr-x. 11 7161 31415    187 6月   2 2020 plugin
+-rw-r--r--.  1 7161 31415    587 6月   2 2020 README
+drwxr-xr-x.  2 7161 31415   4096 6月   2 2020 regex
+drwxr-xr-x.  2 7161 31415   4096 6月   2 2020 scripts
+drwxr-xr-x.  2 7161 31415      6 6月   2 2020 source_downloads
+drwxr-xr-x.  4 7161 31415  12288 6月   2 2020 sql
+drwxr-xr-x.  5 7161 31415   4096 6月   2 2020 sql-bench
+drwxr-xr-x.  2 7161 31415    155 6月   2 2020 sql-common
+drwxr-xr-x. 13 7161 31415    169 6月   2 2020 storage
+drwxr-xr-x.  2 7161 31415   4096 6月   2 2020 strings
+drwxr-xr-x.  5 7161 31415   4096 6月   2 2020 support-files
+drwxr-xr-x.  2 7161 31415   4096 6月   2 2020 tests
+drwxr-xr-x.  5 7161 31415     70 6月   2 2020 unittest
+-rw-r--r--.  1 7161 31415     88 6月   2 2020 VERSION
+drwxr-xr-x.  3 7161 31415   4096 6月   2 2020 vio
+drwxr-xr-x.  2 7161 31415     32 6月   2 2020 win
+drwxr-xr-x. 11 7161 31415   4096 6月   2 2020 zlib
+
+```
+
+## 编译
+```shell
+[root@oahc mysql-5.6.49]# cmake . -DCMAKE_INSTALL_PREFIX=/usr/local/mysql5649 \
+-DMYSQL_DATADIR=/usr/local/mysql5649/data \
+-DMYSQL_UNIX_ADDR=/usr/local/mysql5649/tmp/mysqld.sock \
+-DDEFAULT_CHARSET=utf8 \
+-DDEFAULT_COLLATION=utf8_general_ci \
+-DEXTRA_CHARSETS=all \
+-DWITH_INNOBASE_STORAGE_ENGINE=1 \
+-DWITH_FEDERATED_STORAGE_ENGINE=1 \
+-DWITH_BLACKHOLE_STORAGE_ENGINE=1 \
+-DWITHOUT_EXAMPLE_STORAGE_ENGINE=1 \
+-DWITH_ZLIB=bundled \
+-DWITH_SSL=system \
+-DENABLED_LOCAL_INFILE=1 \
+-DWITH_EMBEDDED_SERVER=1 \
+-DENABLE_DOWNLOADS=1 \
+-DWITH_DEBUG=0 \
+```
+
+## 安装
+```shell
+[root@oahc mysql-5.6.49]# make
+... 时间较长
+[root@oahc mysql-5.6.49]# make && make install
+...
+-- Installing: /usr/local/mysql5649/sql-bench/test-ATIS
+-- Installing: /usr/local/mysql5649/sql-bench/test-alter-table
+-- Installing: /usr/local/mysql5649/sql-bench/test-big-tables
+-- Installing: /usr/local/mysql5649/sql-bench/test-connect
+-- Installing: /usr/local/mysql5649/sql-bench/test-create
+-- Installing: /usr/local/mysql5649/sql-bench/test-insert
+-- Installing: /usr/local/mysql5649/sql-bench/test-select
+-- Installing: /usr/local/mysql5649/sql-bench/test-transactions
+-- Installing: /usr/local/mysql5649/sql-bench/test-wisconsin
+
+[root@oahc mysql-5.6.49]# cd /usr/local/mysql5649/
+[root@oahc mysql5649]# 
+[root@oahc mysql5649]# 
+[root@oahc mysql5649]# pwd
+/usr/local/mysql5649
+[root@oahc mysql5649]# 
+[root@oahc mysql5649]# ls -l
+总用量 244
+drwxr-xr-x.  2 root root   4096 4月  21 14:56 bin
+drwxr-xr-x.  3 root root     18 4月  21 14:56 data
+drwxr-xr-x.  2 root root     55 4月  21 14:56 docs
+drwxr-xr-x.  3 root root   4096 4月  21 14:56 include
+drwxr-xr-x.  3 root root   4096 4月  21 14:56 lib
+-rw-r--r--.  1 root root 219891 6月   2 2020 LICENSE
+drwxr-xr-x.  4 root root     30 4月  21 14:56 man
+drwxr-xr-x. 10 root root   4096 4月  21 14:56 mysql-test
+-rw-r--r--.  1 root root    587 6月   2 2020 README
+drwxr-xr-x.  2 root root     30 4月  21 14:56 scripts
+drwxr-xr-x. 28 root root   4096 4月  21 14:56 share
+drwxr-xr-x.  4 root root   4096 4月  21 14:56 sql-bench
+drwxr-xr-x.  2 root root    136 4月  21 14:56 support-files
+
+[root@oahc usr]# cd /usr/local/
+[root@oahc local]# 
+[root@oahc local]# 
+[root@oahc local]# ls -l
+总用量 0
+drwxr-xr-x.  2 root root   6 4月  11 2018 bin
+drwxr-xr-x.  2 root root   6 4月  11 2018 etc
+drwxr-xr-x.  2 root root   6 4月  11 2018 games
+drwxr-xr-x.  2 root root   6 4月  11 2018 include
+drwxr-xr-x.  2 root root   6 4月  11 2018 lib
+drwxr-xr-x.  2 root root   6 4月  11 2018 lib64
+drwxr-xr-x.  2 root root   6 4月  11 2018 libexec
+drwxr-xr-x. 13 root root 191 4月  21 14:56 mysql5649
+drwxr-xr-x.  2 root root   6 4月  11 2018 sbin
+drwxr-xr-x.  5 root root  49 4月  10 21:53 share
+drwxr-xr-x.  2 root root   6 4月  11 2018 src
+[root@oahc local]# 
+[root@oahc local]# ln -s /usr/local/mysql5649/ /usr/local/mysql
+[root@oahc local]# ls -l
+总用量 0
+drwxr-xr-x.  2 root root   6 4月  11 2018 bin
+drwxr-xr-x.  2 root root   6 4月  11 2018 etc
+drwxr-xr-x.  2 root root   6 4月  11 2018 games
+drwxr-xr-x.  2 root root   6 4月  11 2018 include
+drwxr-xr-x.  2 root root   6 4月  11 2018 lib
+drwxr-xr-x.  2 root root   6 4月  11 2018 lib64
+drwxr-xr-x.  2 root root   6 4月  11 2018 libexec
+lrwxrwxrwx.  1 root root  21 4月  21 15:01 mysql -> /usr/local/mysql5649/
+drwxr-xr-x. 13 root root 191 4月  21 14:56 mysql5649
+drwxr-xr-x.  2 root root   6 4月  11 2018 sbin
+drwxr-xr-x.  5 root root  49 4月  10 21:53 share
+drwxr-xr-x.  2 root root   6 4月  11 2018 src
+
+
+[root@oahc mysql]# cd data/
+[root@oahc data]# ls -l
+总用量 0
+drwxr-xr-x. 2 root root 20 4月  21 14:56 test
+
+[root@oahc local]# yum install autoconf -y
+[root@oahc local]# yum install -y perl perl-devel
+[root@oahc local]# cd /usr/local/mysql/scripts
+[root@oahc scripts]# /usr/local/mysql/scripts/mysql_install_db --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data --user=mysql
+Installing MySQL system tables...2022-04-21 15:10:02 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2022-04-21 15:10:02 0 [Note] Ignoring --secure-file-priv value as server is running with --bootstrap.
+2022-04-21 15:10:02 0 [Note] /usr/local/mysql/bin/mysqld (mysqld 5.6.49) starting as process 39015 ...
+2022-04-21 15:10:02 39015 [Note] InnoDB: Using atomics to ref count buffer pool pages
+2022-04-21 15:10:02 39015 [Note] InnoDB: The InnoDB memory heap is disabled
+2022-04-21 15:10:02 39015 [Note] InnoDB: Mutexes and rw_locks use GCC atomic builtins
+2022-04-21 15:10:02 39015 [Note] InnoDB: Memory barrier is not used
+2022-04-21 15:10:02 39015 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2022-04-21 15:10:02 39015 [Note] InnoDB: Using Linux native AIO
+2022-04-21 15:10:02 39015 [Note] InnoDB: Using CPU crc32 instructions
+2022-04-21 15:10:02 39015 [Note] InnoDB: Initializing buffer pool, size = 128.0M
+2022-04-21 15:10:02 39015 [Note] InnoDB: Completed initialization of buffer pool
+2022-04-21 15:10:02 39015 [Note] InnoDB: The first specified data file ./ibdata1 did not exist: a new database to be created!
+2022-04-21 15:10:02 39015 [Note] InnoDB: Setting file ./ibdata1 size to 12 MB
+2022-04-21 15:10:02 39015 [Note] InnoDB: Database physically writes the file full: wait...
+2022-04-21 15:10:02 39015 [Note] InnoDB: Setting log file ./ib_logfile101 size to 48 MB
+2022-04-21 15:10:02 39015 [Note] InnoDB: Setting log file ./ib_logfile1 size to 48 MB
+2022-04-21 15:10:02 39015 [Note] InnoDB: Renaming log file ./ib_logfile101 to ./ib_logfile0
+2022-04-21 15:10:02 39015 [Warning] InnoDB: New log files created, LSN=45781
+2022-04-21 15:10:02 39015 [Note] InnoDB: Doublewrite buffer not found: creating new
+2022-04-21 15:10:02 39015 [Note] InnoDB: Doublewrite buffer created
+2022-04-21 15:10:02 39015 [Note] InnoDB: 128 rollback segment(s) are active.
+2022-04-21 15:10:02 39015 [Warning] InnoDB: Creating foreign key constraint system tables.
+2022-04-21 15:10:02 39015 [Note] InnoDB: Foreign key constraint system tables created
+2022-04-21 15:10:02 39015 [Note] InnoDB: Creating tablespace and datafile system tables.
+2022-04-21 15:10:02 39015 [Note] InnoDB: Tablespace and datafile system tables created.
+2022-04-21 15:10:02 39015 [Note] InnoDB: Waiting for purge to start
+2022-04-21 15:10:02 39015 [Note] InnoDB: 5.6.49 started; log sequence number 0
+2022-04-21 15:10:02 39015 [Note] RSA private key file not found: /usr/local/mysql/data//private_key.pem. Some authentication plugins will not work.
+2022-04-21 15:10:02 39015 [Note] RSA public key file not found: /usr/local/mysql/data//public_key.pem. Some authentication plugins will not work.
+2022-04-21 15:10:02 39015 [Note] Binlog end
+2022-04-21 15:10:02 39015 [Note] InnoDB: FTS optimize thread exiting.
+2022-04-21 15:10:02 39015 [Note] InnoDB: Starting shutdown...
+2022-04-21 15:10:04 39015 [Note] InnoDB: Shutdown completed; log sequence number 1625977
+OK
+
+Filling help tables...2022-04-21 15:10:04 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2022-04-21 15:10:04 0 [Note] Ignoring --secure-file-priv value as server is running with --bootstrap.
+2022-04-21 15:10:04 0 [Note] /usr/local/mysql/bin/mysqld (mysqld 5.6.49) starting as process 39039 ...
+2022-04-21 15:10:04 39039 [Note] InnoDB: Using atomics to ref count buffer pool pages
+2022-04-21 15:10:04 39039 [Note] InnoDB: The InnoDB memory heap is disabled
+2022-04-21 15:10:04 39039 [Note] InnoDB: Mutexes and rw_locks use GCC atomic builtins
+2022-04-21 15:10:04 39039 [Note] InnoDB: Memory barrier is not used
+2022-04-21 15:10:04 39039 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2022-04-21 15:10:04 39039 [Note] InnoDB: Using Linux native AIO
+2022-04-21 15:10:04 39039 [Note] InnoDB: Using CPU crc32 instructions
+2022-04-21 15:10:04 39039 [Note] InnoDB: Initializing buffer pool, size = 128.0M
+2022-04-21 15:10:04 39039 [Note] InnoDB: Completed initialization of buffer pool
+2022-04-21 15:10:04 39039 [Note] InnoDB: Highest supported file format is Barracuda.
+2022-04-21 15:10:04 39039 [Note] InnoDB: 128 rollback segment(s) are active.
+2022-04-21 15:10:04 39039 [Note] InnoDB: Waiting for purge to start
+2022-04-21 15:10:04 39039 [Note] InnoDB: 5.6.49 started; log sequence number 1625977
+2022-04-21 15:10:04 39039 [Note] RSA private key file not found: /usr/local/mysql/data//private_key.pem. Some authentication plugins will not work.
+2022-04-21 15:10:04 39039 [Note] RSA public key file not found: /usr/local/mysql/data//public_key.pem. Some authentication plugins will not work.
+2022-04-21 15:10:04 39039 [Note] Binlog end
+2022-04-21 15:10:04 39039 [Note] InnoDB: FTS optimize thread exiting.
+2022-04-21 15:10:04 39039 [Note] InnoDB: Starting shutdown...
+2022-04-21 15:10:06 39039 [Note] InnoDB: Shutdown completed; log sequence number 1625987
+OK
+
+To start mysqld at boot time you have to copy
+support-files/mysql.server to the right place for your system
+
+PLEASE REMEMBER TO SET A PASSWORD FOR THE MySQL root USER !
+To do so, start the server, then issue the following commands:
+
+  /usr/local/mysql/bin/mysqladmin -u root password 'new-password'
+  /usr/local/mysql/bin/mysqladmin -u root -h oahc.eux.cn password 'new-password'
+
+Alternatively you can run:
+
+  /usr/local/mysql/bin/mysql_secure_installation
+
+which will also give you the option of removing the test
+databases and anonymous user created by default.  This is
+strongly recommended for production servers.
+
+See the manual for more instructions.
+
+You can start the MySQL daemon with:
+
+  cd . ; /usr/local/mysql/bin/mysqld_safe &
+
+You can test the MySQL daemon with mysql-test-run.pl
+
+  cd mysql-test ; perl mysql-test-run.pl
+
+Please report any problems at http://bugs.mysql.com/
+
+The latest information about MySQL is available on the web at
+
+  http://www.mysql.com
+
+Support MySQL by buying support/licenses at http://shop.mysql.com
+
+New default config file was created as /usr/local/mysql/my.cnf and
+will be used by default by the server when you start it.
+You may edit this file to change server settings
+
+WARNING: Default config file /etc/my.cnf exists on the system
+This file will be read by default by the MySQL server
+If you do not want to use this, either remove it, or use the
+--defaults-file argument to mysqld_safe when starting the server
+
+[root@oahc scripts]# cd ../data/
+[root@oahc data]# 
+[root@oahc data]# 
+[root@oahc data]# ls -l
+总用量 110600
+-rw-rw----. 1 mysql mysql 12582912 4月  21 15:10 ibdata1
+-rw-rw----. 1 mysql mysql 50331648 4月  21 15:10 ib_logfile0
+-rw-rw----. 1 mysql mysql 50331648 4月  21 15:10 ib_logfile1
+drwx------. 2 mysql mysql     4096 4月  21 15:10 mysql
+drwx------. 2 mysql mysql     4096 4月  21 15:10 performance_schema
+drwxr-xr-x. 2 mysql mysql       20 4月  21 14:56 test
+
+
+[root@oahc support-files]# pwd
+/usr/local/mysql/support-files
+[root@oahc support-files]# 
+[root@oahc support-files]# 
+[root@oahc support-files]# ls -l
+总用量 32
+-rwxr-xr-x. 1 root root  1153 4月  21 14:25 binary-configure
+-rw-r--r--. 1 root root   773 6月   2 2020 magic
+-rw-r--r--. 1 root root  1126 4月  21 14:25 my-default.cnf
+-rwxr-xr-x. 1 root root  1061 4月  21 14:25 mysqld_multi.server
+-rwxr-xr-x. 1 root root   914 4月  21 14:25 mysql-log-rotate
+-rwxr-xr-x. 1 root root 10589 4月  21 14:25 mysql.server
+
+[root@oahc support-files]# cp mysql.server /etc/init.d/mysqld
+[root@oahc support-files]# chmod 700 /etc/init.d/mysqld 
+[root@oahc support-files]# cd ..
+[root@oahc mysql]# ls -l
+总用量 248
+drwxr-xr-x.  2 root  root    4096 4月  21 14:56 bin
+drwxr-xr-x.  5 mysql mysql    110 4月  21 15:10 data
+drwxr-xr-x.  2 root  root      55 4月  21 14:56 docs
+drwxr-xr-x.  3 root  root    4096 4月  21 14:56 include
+drwxr-xr-x.  3 root  root    4096 4月  21 14:56 lib
+-rw-r--r--.  1 root  root  219891 6月   2 2020 LICENSE
+drwxr-xr-x.  4 root  root      30 4月  21 14:56 man
+-rw-r--r--.  1 root  root     943 4月  21 15:10 my.cnf
+drwxr-xr-x. 10 root  root    4096 4月  21 14:56 mysql-test
+-rw-r--r--.  1 root  root     587 6月   2 2020 README
+drwxr-xr-x.  2 root  root      30 4月  21 14:56 scripts
+drwxr-xr-x. 28 root  root    4096 4月  21 14:56 share
+drwxr-xr-x.  4 root  root    4096 4月  21 14:56 sql-bench
+drwxr-xr-x.  2 root  root     136 4月  21 14:56 support-files
+//此时的data文件夹的权限是mysql用户，其他文件夹是root用户
+
+[root@oahc mysql]# cp scripts/mysql_install_db /etc/my.cnf
+
+[root@oahc mysql]# /etc/init.d/mysqld status
+error: Found option without preceding group in config file: /etc/my.cnf at line: 44
+Fatal error in defaults handling. Program aborted
+ ERROR! MySQL is not running
+[root@oahc mysql]# /etc/init.d/mysqld start
+...
+[root@oahc mysql]# chown -R mysql.mysql /usr/local/mysql5649/
+[root@oahc mysql]# ls -l
+总用量 248
+drwxr-xr-x.  2 mysql mysql   4096 4月  21 20:52 bin
+drwxr-xr-x.  5 mysql mysql    149 4月  21 20:57 data
+drwxr-xr-x.  2 mysql mysql     55 4月  21 20:52 docs
+drwxr-xr-x.  3 mysql mysql   4096 4月  21 20:52 include
+drwxr-xr-x.  3 mysql mysql   4096 4月  21 20:52 lib
+-rw-r--r--.  1 mysql mysql 219891 6月   2 2020 LICENSE
+drwxr-xr-x.  4 mysql mysql     30 4月  21 20:52 man
+-rw-r--r--.  1 mysql mysql    943 4月  21 20:55 my.cnf
+drwxr-xr-x. 10 mysql mysql   4096 4月  21 20:52 mysql-test
+-rw-r--r--.  1 mysql mysql    587 6月   2 2020 README
+drwxr-xr-x.  2 mysql mysql     30 4月  21 20:52 scripts
+drwxr-xr-x. 28 mysql mysql   4096 4月  21 20:52 share
+drwxr-xr-x.  4 mysql mysql   4096 4月  21 20:52 sql-bench
+drwxr-xr-x.  2 mysql mysql    136 4月  21 20:52 support-files
+drwxr-xr-x.  2 mysql mysql      6 4月  21 20:57 tmp
+[root@oahc mysql]# /etc/init.d/mysqld start
+Starting MySQL. SUCCESS! 
+
+[root@oahc mysql]# netstat -tunlp|grep mysql
+tcp6       0      0 :::3306                 :::*                    LISTEN      25945/mysqld     
+
+
+```
+
+# 设置环境变量
